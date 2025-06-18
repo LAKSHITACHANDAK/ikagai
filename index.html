@@ -433,8 +433,9 @@
 
         .rating-stars {
             display: flex;
+            flex-direction: row-reverse; /* For CSS trick to fill stars */
             gap: 5px;
-            justify-content: center;
+            justify-content: center; /* Center the stars */
         }
 
         .rating-stars input[type="radio"] {
@@ -448,19 +449,14 @@
             transition: color 0.2s ease;
         }
 
-        .rating-stars label:hover,
-        .rating-stars label:hover ~ label,
+        /* Star rating fill effect */
         .rating-stars input[type="radio"]:checked ~ label {
-            color: #FFD700; /* Gold color for selected stars */
+            color: #FFD700; /* Gold color for selected stars and preceding ones */
         }
-        /* Ensure the checked star and preceding stars are golden */
-        .rating-stars input[type="radio"]:checked + label {
-            color: #FFD700;
+        .rating-stars label:hover,
+        .rating-stars label:hover ~ label {
+            color: #FFD700; /* Gold color on hover */
         }
-        .rating-stars label:has(~ input[type="radio"]:checked) {
-             color: #FFD700;
-        }
-
 
         .review-submit-button {
             background: var(--accent-crimson);
@@ -649,8 +645,8 @@
                     <li><a href="#home" class="active">Home</a></li>
                     <li><a href="#about-book">About the Book</a></li>
                     <li><a href="#testimonials">Reviews</a></li>
-                    <li><a href="#submit-review">Submit Review</a></li>
                     <li><a href="#gallery">Gallery</a></li>
+                    <li><a href="#submit-review">Share Feedback</a></li>
                 </ul>
             </div>
         </nav>
@@ -711,10 +707,23 @@
             </div>
         </section>
 
+        <section class="image-gallery" id="gallery">
+            <h3>Visual Insights from "Ikigai":</h3>
+            <div class="container gallery-grid">
+                <img src="6.jpg" alt="Ikigai book interior showing a diagram on purpose" title="Discovering your Ikigai diagram">
+                <img src="2.jpg" alt="A page from Ikigai discussing flow state" title="Understanding the concept of Flow">
+                <img src="3.jpg" alt="Ikigai book open to a chapter on longevity" title="Insights into living a long and happy life">
+                <img src="4.jpg" alt="Illustration from Ikigai representing community and connection" title="The importance of community in Ikigai">
+                <img src="5.jpg" alt="Ikigai book showing a quote on mindfulness" title="Quotes on mindfulness from Ikigai">
+            </div>
+        </section>
+
+        ---
+
         <section class="review-form-section" id="submit-review">
             <div class="container">
-                <h3>Share Your Thoughts!</h3>
-                <p>We'd love to hear your feedback on "Ikigai: The Japanese Secret to a Long and Happy Life". Please take a moment to share your review.</p>
+                <h3>Share Your Feedback!</h3>
+                <p>We'd love to hear your thoughts and experiences with "Ikigai: The Japanese Secret to a Long and Happy Life". Please take a moment to share your review.</p>
                 <form class="review-form" action="#" method="POST">
                     <div class="form-group">
                         <label for="name">Your Name:</label>
@@ -742,22 +751,11 @@
                 </form>
             </div>
         </section>
-
-        <section class="image-gallery" id="gallery">
-            <h3>Visual Insights from "Ikigai":</h3>
-            <div class="container gallery-grid">
-                <img src="6.jpg" alt="Ikigai book interior showing a diagram on purpose" title="Discovering your Ikigai diagram">
-                <img src="2.jpg" alt="A page from Ikigai discussing flow state" title="Understanding the concept of Flow">
-                <img src="3.jpg" alt="Ikigai book open to a chapter on longevity" title="Insights into living a long and happy life">
-                <img src="4.jpg" alt="Illustration from Ikigai representing community and connection" title="The importance of community in Ikigai">
-                <img src="5.jpg" alt="Ikigai book showing a quote on mindfulness" title="Quotes on mindfulness from Ikigai">
-            </div>
-        </section>
     </div>
 
     <footer>
         <div class="container">
-            <p>&copy; DEVELOPED BY LAKSHITA CHANDAK</p>
+            <p>&copy; LAKSHITA CHANDAK</p>
         </div>
     </footer>
 </body>
