@@ -304,7 +304,7 @@
             box-shadow: 0 10px 25px var(--shadow-strong);
         }
 
-        .testimonials {
+        .reviews { /* Changed from .testimonials */
             margin-top: 100px;
             padding: 60px;
             background: var(--secondary-accent-blue);
@@ -314,8 +314,8 @@
             position: relative;
             overflow: hidden; /* For angled background effect */
         }
-        /* Angled top border for testimonials */
-        .testimonials::before {
+        /* Angled top border for reviews */
+        .reviews::before { /* Changed from .testimonials::before */
             content: '';
             position: absolute;
             top: -30px; /* Adjust to control angle height */
@@ -327,16 +327,16 @@
             transform-origin: top left;
             z-index: 0;
         }
-        .testimonials .container {
+        .reviews .container { /* Changed from .testimonials .container */
             position: relative;
             z-index: 1;
         }
 
-        .testimonials h3 {
+        .reviews h3 { /* Changed from .testimonials h3 */
             color: var(--text-light);
             margin-bottom: 40px;
         }
-        .testimonials h3::after {
+        .reviews h3::after { /* Changed from .testimonials h3::after */
             background-color: var(--accent-crimson);
         }
         .testimonial-grid {
@@ -519,7 +519,7 @@
                 <ul>
                     <li><a href="#home" class="active">Home</a></li>
                     <li><a href="#about-book">About the Book</a></li>
-                    <li><a href="#testimonials">Reviews</a></li>
+                    <li><a href="#reviews">Reviews</a></li>
                     <li><a href="#gallery">Gallery</a></li>
                 </ul>
             </div>
@@ -561,9 +561,9 @@
             </div>
         </section>
 
-        <section class="testimonials" id="testimonials">
+        <section class="reviews" id="reviews">
             <div class="container">
-                <h3>Readers Love "Ikigai":</h3>
+                <h3>What Readers Are Saying:</h3>
                 <div class="testimonial-grid">
                     <div class="testimonial-card">
                         <p>"A refreshing dive into the philosophy of finding purpose. This book changed how I view my daily routine."</p>
@@ -595,7 +595,7 @@
 
     <footer>
         <div class="container">
-            <p>&copy; DEVELOPED BY LAKSHITA CHANDAK.</p>
+            <p>&copy; 2025 New Vision. All rights reserved.</p>
         </div>
     </footer>
 </body>
