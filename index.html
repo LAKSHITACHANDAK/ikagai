@@ -304,7 +304,7 @@
             box-shadow: 0 10px 25px var(--shadow-strong);
         }
 
-        .reviews { /* Changed from .testimonials */
+        .testimonials {
             margin-top: 100px;
             padding: 60px;
             background: var(--secondary-accent-blue);
@@ -314,8 +314,8 @@
             position: relative;
             overflow: hidden; /* For angled background effect */
         }
-        /* Angled top border for reviews */
-        .reviews::before { /* Changed from .testimonials::before */
+        /* Angled top border for testimonials */
+        .testimonials::before {
             content: '';
             position: absolute;
             top: -30px; /* Adjust to control angle height */
@@ -327,16 +327,16 @@
             transform-origin: top left;
             z-index: 0;
         }
-        .reviews .container { /* Changed from .testimonials .container */
+        .testimonials .container {
             position: relative;
             z-index: 1;
         }
 
-        .reviews h3 { /* Changed from .testimonials h3 */
+        .testimonials h3 {
             color: var(--text-light);
             margin-bottom: 40px;
         }
-        .reviews h3::after { /* Changed from .testimonials h3::after */
+        .testimonials h3::after {
             background-color: var(--accent-crimson);
         }
         .testimonial-grid {
@@ -362,6 +362,126 @@
             text-align: right;
             font-weight: 300;
         }
+
+        /* Review Form Section */
+        .review-form-section {
+            margin-top: 100px;
+            padding: 60px;
+            background: var(--white);
+            box-shadow: 0 0 30px var(--shadow-subtle);
+            border-radius: 4px;
+            text-align: center;
+        }
+
+        .review-form-section h3 {
+            color: var(--primary-dark-charcoal);
+        }
+        .review-form-section h3::after {
+            background-color: var(--accent-crimson);
+        }
+
+        .review-form {
+            max-width: 700px;
+            margin: 40px auto 0;
+            display: flex;
+            flex-direction: column;
+            gap: 20px;
+            text-align: left;
+        }
+
+        .form-group {
+            margin-bottom: 15px;
+        }
+
+        .form-group label {
+            display: block;
+            margin-bottom: 8px;
+            font-family: 'Roboto Condensed', sans-serif;
+            font-weight: 700;
+            color: var(--primary-dark-charcoal);
+            font-size: 1.1em;
+        }
+
+        .form-group input[type="text"],
+        .form-group input[type="email"],
+        .form-group textarea,
+        .form-group select {
+            width: 100%;
+            padding: 15px;
+            border: 1px solid #ccc;
+            border-radius: 4px;
+            font-family: 'Roboto', sans-serif;
+            font-size: 1em;
+            box-sizing: border-box; /* Include padding in width */
+            background-color: var(--bg-light-grey);
+            color: var(--text-main);
+            transition: border-color 0.3s ease, box-shadow 0.3s ease;
+        }
+
+        .form-group input:focus,
+        .form-group textarea:focus,
+        .form-group select:focus {
+            border-color: var(--secondary-accent-blue);
+            box-shadow: 0 0 0 3px rgba(74, 101, 114, 0.2); /* Soft focus glow */
+            outline: none;
+        }
+
+        .form-group textarea {
+            resize: vertical;
+            min-height: 120px;
+        }
+
+        .rating-stars {
+            display: flex;
+            gap: 5px;
+            justify-content: center;
+        }
+
+        .rating-stars input[type="radio"] {
+            display: none;
+        }
+
+        .rating-stars label {
+            cursor: pointer;
+            font-size: 2em;
+            color: #ccc; /* Default star color */
+            transition: color 0.2s ease;
+        }
+
+        .rating-stars label:hover,
+        .rating-stars label:hover ~ label,
+        .rating-stars input[type="radio"]:checked ~ label {
+            color: #FFD700; /* Gold color for selected stars */
+        }
+        /* Ensure the checked star and preceding stars are golden */
+        .rating-stars input[type="radio"]:checked + label {
+            color: #FFD700;
+        }
+        .rating-stars label:has(~ input[type="radio"]:checked) {
+             color: #FFD700;
+        }
+
+
+        .review-submit-button {
+            background: var(--accent-crimson);
+            color: var(--text-light);
+            padding: 15px 30px;
+            border: none;
+            border-radius: 4px;
+            font-size: 1.2em;
+            font-weight: 700;
+            cursor: pointer;
+            transition: background 0.3s ease, transform 0.2s ease;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            margin-top: 20px;
+        }
+
+        .review-submit-button:hover {
+            background: #B20C2F;
+            transform: translateY(-2px);
+        }
+
 
         .image-gallery {
             margin-top: 100px;
@@ -436,6 +556,12 @@
             nav ul li a {
                 font-size: 1em;
             }
+            .review-form-section {
+                padding: 40px;
+            }
+            .review-form {
+                margin-top: 30px;
+            }
         }
 
         @media (max-width: 768px) {
@@ -475,6 +601,9 @@
             }
             nav ul li {
                 margin: 10px 0;
+            }
+            .review-form-section {
+                padding: 30px;
             }
         }
 
@@ -519,7 +648,8 @@
                 <ul>
                     <li><a href="#home" class="active">Home</a></li>
                     <li><a href="#about-book">About the Book</a></li>
-                    <li><a href="#reviews">Reviews</a></li>
+                    <li><a href="#testimonials">Reviews</a></li>
+                    <li><a href="#submit-review">Submit Review</a></li>
                     <li><a href="#gallery">Gallery</a></li>
                 </ul>
             </div>
@@ -561,9 +691,9 @@
             </div>
         </section>
 
-        <section class="reviews" id="reviews">
+        <section class="testimonials" id="testimonials">
             <div class="container">
-                <h3>What Readers Are Saying:</h3>
+                <h3>Readers Love "Ikigai":</h3>
                 <div class="testimonial-grid">
                     <div class="testimonial-card">
                         <p>"A refreshing dive into the philosophy of finding purpose. This book changed how I view my daily routine."</p>
@@ -581,6 +711,38 @@
             </div>
         </section>
 
+        <section class="review-form-section" id="submit-review">
+            <div class="container">
+                <h3>Share Your Thoughts!</h3>
+                <p>We'd love to hear your feedback on "Ikigai: The Japanese Secret to a Long and Happy Life". Please take a moment to share your review.</p>
+                <form class="review-form" action="#" method="POST">
+                    <div class="form-group">
+                        <label for="name">Your Name:</label>
+                        <input type="text" id="name" name="name" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="email">Your Email:</label>
+                        <input type="email" id="email" name="email" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="rating">Your Rating:</label>
+                        <div class="rating-stars">
+                            <input type="radio" id="star5" name="rating" value="5" required><label for="star5" title="5 stars">&#9733;</label>
+                            <input type="radio" id="star4" name="rating" value="4"><label for="star4" title="4 stars">&#9733;</label>
+                            <input type="radio" id="star3" name="rating" value="3"><label for="star3" title="3 stars">&#9733;</label>
+                            <input type="radio" id="star2" name="rating" value="2"><label for="star2" title="2 stars">&#9733;</label>
+                            <input type="radio" id="star1" name="rating" value="1"><label for="star1" title="1 star">&#9733;</label>
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label for="review">Your Review:</label>
+                        <textarea id="review" name="review" rows="6" placeholder="Share your experience with the book..." required></textarea>
+                    </div>
+                    <button type="submit" class="review-submit-button">Submit Review</button>
+                </form>
+            </div>
+        </section>
+
         <section class="image-gallery" id="gallery">
             <h3>Visual Insights from "Ikigai":</h3>
             <div class="container gallery-grid">
@@ -595,7 +757,7 @@
 
     <footer>
         <div class="container">
-            <p>&copy; 2025 New Vision. All rights reserved.</p>
+            <p>&copy; DEVELOPED BY LAKSHITA CHANDAK</p>
         </div>
     </footer>
 </body>
